@@ -4,7 +4,7 @@
   "description": "the robot im building",
   "main": "theia.js",
   "scripts": {
-    "dep":"git add . && git commit -m 'theia deploy' && git push"
+    "dep": "git add . && git commit -m 'theia deploy' && git push"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/xrehpicx/theia/issues"
   },
-  "homepage": "https://github.com/xrehpicx/theia#readme"
+  "homepage": "https://github.com/xrehpicx/theia#readme",
+  "dependencies": {
+    "mqtt": "^3.0.0",
+    "pigpio": "^3.0.0"
+  }
 }
