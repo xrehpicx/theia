@@ -1,0 +1,19 @@
+{
+  "name": "theia",
+  "version": "1.0.0",
+  "description": "the robot im building",
+  "main": "theia.js",
+  "scripts": {
+    "dep":"git add . && git commit -m 'theia deploy' && git push"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xrehpicx/theia.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xrehpicx/theia/issues"
+  },
+  "homepage": "https://github.com/xrehpicx/theia#readme"
+}
