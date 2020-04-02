@@ -1,5 +1,5 @@
-
-module.exports = function (Gpio)  {
+const Gpio = require('pigpio').Gpio;
+module.exports = function ()  {
     
     return {
         test: () => console.log(this),
