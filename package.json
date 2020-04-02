@@ -4,7 +4,7 @@
   "description": "the robot im building",
   "main": "theia.js",
   "scripts": {
-    "dep": "git add . && git commit -m 'theia deploy' && git push"
+    "deploy": "git add . && git commit -m 'theia deploy' && git push"
   },
   "repository": {
     "type": "git",
