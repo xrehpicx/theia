@@ -1,8 +1,8 @@
 const Gpio = require('pigpio').Gpio;
-module.exports = function ()  {
-    
+module.exports = function () {
+
     return {
-        test: () => console.log(this),
+        test: () => console.log(this.ac, this.bc),
         init: (a, b) => {
             /* PAIR A */
             this.ac = new Gpio(a.c, { mode: Gpio.OUTPUT });
