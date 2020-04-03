@@ -1,5 +1,3 @@
-
-
-const wheels = require('./src/motorControl')(Gpio);
+const wheels = require('./src/motorControl')();
 console.log(wheels.test());
 //wheels.test()
