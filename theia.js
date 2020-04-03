@@ -11,6 +11,6 @@ const b = {
 }
 wheels.init(a, b);
 console.log(wheels.test());
-/* wheels.set(200, 0);
-setTimeout(wheels.reset, 1000); */
+wheels.set(200, 0);
+setTimeout(wheels.reset, 1000);
 
