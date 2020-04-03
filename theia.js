@@ -10,7 +10,7 @@ const b = {
     e: 22,
 }
 wheels.init(a, b);
-console.log(wheels.test());
+/* console.log(wheels.test()); */
 wheels.set(200, 0);
 setTimeout(wheels.reset, 1000);
 

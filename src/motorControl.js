@@ -28,17 +28,18 @@ module.exports = function () {
             console.log('reset');
         },
         val: (in11, in12, in21, in22, pwm1, pwm2) => {
-            ac.digitalWrite(in11);
-            acc.digitalWrite(in12);
+            worker.ac.digitalWrite(in11);
+            worker.acc.digitalWrite(in12);
 
-            bc.digitalWrite(in21);
-            bcc.digitalWrite(in22);
+            worker.bc.digitalWrite(in21);
+            worker.bcc.digitalWrite(in22);
 
 
-            ea.pwmWrite(pwm1);
-            eb.pwmWrite(pwm2);
+            worker.ea.pwmWrite(pwm1);
+            worker.eb.pwmWrite(pwm2);
         },
         set: (speed, angularVelocity) => {
+            console.log('set running');
             let new_aSpeed = speed * Math.cos(angularVelocity * 2 * (angularVelocity < 0) * 3.1415926535897932384626 / 510);
             let new_bSpeed = speed * Math.cos(angularVelocity * 2 * (angularVelocity >= 0) * 3.1415926535897932384626 / 510);
 
@@ -50,7 +51,7 @@ module.exports = function () {
 
             new_aSpeed = Math.floor(Math.abs(new_aSpeed));
             new_bSpeed = Math.floor(Math.abs(new_bSpeed));
-
+            console.log('values calculated');
             worker.val(acValue, accValue, bcValue, bccValue, new_aSpeed, new_bSpeed);
         }
     }
