@@ -51,7 +51,7 @@ module.exports = function () {
             new_aSpeed = Math.floor(Math.abs(new_aSpeed));
             new_bSpeed = Math.floor(Math.abs(new_bSpeed));
 
-            setVal(acValue, accValue, bcValue, bccValue, new_aSpeed, new_bSpeed);
+            this.setVal(acValue, accValue, bcValue, bccValue, new_aSpeed, new_bSpeed);
         }
     }
 
