@@ -5,8 +5,8 @@ const a = {
     e: 27,
 }
 const b = {
-    c: 23,
-    cc: 24,
+    cc: 23,
+    c: 24,
     e: 22,
 }
 wheels.init(a, b);
