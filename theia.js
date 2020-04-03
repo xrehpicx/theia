@@ -5,8 +5,12 @@ socket.on('connect', function () {
     console.log('connected');
 });
 
-socket.on('debug', function (data) {
-    console.log(data);
+socket.on('theiay', function (y) {
+    console.log(Number(y));
+});
+
+socket.on('theiax', function (x) {
+    console.log(Number(x));
 });
 
 socket.on('disconnect', function () {
