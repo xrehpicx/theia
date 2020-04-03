@@ -38,7 +38,7 @@ module.exports = function () {
             worker.ea.pwmWrite(pwm1);
             worker.eb.pwmWrite(pwm2);
         },
-        set: (speed, angularVelocity) => {
+        set: (speed = 0, angularVelocity = 0) => {
             console.log('set running');
             let new_aSpeed = speed * Math.cos(angularVelocity * 2 * (angularVelocity < 0) * 3.1415926535897932384626 / 510);
             let new_bSpeed = speed * Math.cos(angularVelocity * 2 * (angularVelocity >= 0) * 3.1415926535897932384626 / 510);
