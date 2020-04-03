@@ -1,32 +1,16 @@
 const wheels = require('./src/motorControl')();
-const a = {
-    c: 10,
-    cc: 9,
-    e: 27,
-}
-const b = {
-    cc: 23,
-    c: 24,
-    e: 22,
-}
-wheels.init(a, b);
-/* console.log(wheels.test()); */
-(async ()=>{
-    wheels.reset();
-    await delay(1000);
-    wheels.set(200);
-    await delay(1000);
-    wheels.set(-200);
-    await delay(1000);
-    wheels.reset();
-})();
+const socket = require('socket.io-client')('http://localhosthttps://theiax.herokuapp.com/');
+
+socket.on('connect', function () { console.log('connected') });
+socket.on('debug', function (data) {
+    console.log(data);
+});
+socket.on('disconnect', function () { });
+
+
+wheels.init();
 
 
 
-function delay(duration) {
-    return new Promise(function (resolve, reject) {
-        setTimeout(function () {
-            resolve();
-        }, duration)
-    });
-};
+
+

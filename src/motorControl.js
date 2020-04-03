@@ -1,9 +1,20 @@
 const Gpio = require('pigpio').Gpio;
+
+const a = {
+    c: 10,
+    cc: 9,
+    e: 27,
+}
+const b = {
+    cc: 23,
+    c: 24,
+    e: 22,
+}
 module.exports = function () {
 
     const worker = {
         test: () => console.log(worker),
-        init: (a, b) => {
+        init: (a = a, b = b) => {
             /* PAIR A */
             worker.ac = new Gpio(a.c, { mode: Gpio.OUTPUT });
             worker.acc = new Gpio(a.cc, { mode: Gpio.OUTPUT });
@@ -57,3 +68,11 @@ module.exports = function () {
     }
     return worker;
 }
+
+function delay(duration) {
+    return new Promise(function (resolve, reject) {
+        setTimeout(function () {
+            resolve();
+        }, duration)
+    });
+};
