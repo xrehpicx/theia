@@ -1,20 +1,19 @@
 const Gpio = require('pigpio').Gpio;
 
-const a = {
-    c: 10,
-    cc: 9,
-    e: 27,
-}
-const b = {
-    cc: 23,
-    c: 24,
-    e: 22,
-}
 module.exports = function () {
-
+    const as = {
+        c: 10,
+        cc: 9,
+        e: 27,
+    }
+    const bs = {
+        cc: 23,
+        c: 24,
+        e: 22,
+    }
     const worker = {
         test: () => console.log(worker),
-        init: (a = a, b = b) => {
+        init: (a = as, b = bs) => {
             /* PAIR A */
             worker.ac = new Gpio(a.c, { mode: Gpio.OUTPUT });
             worker.acc = new Gpio(a.cc, { mode: Gpio.OUTPUT });
