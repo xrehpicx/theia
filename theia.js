@@ -16,7 +16,7 @@ wheels.init(a, b);
     await delay(1000);
     wheels.set(200);
     await delay(1000);
-    wheels.set(200,255);
+    wheels.set(-200);
     await delay(1000);
     wheels.reset();
 })();
