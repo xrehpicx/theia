@@ -27,7 +27,7 @@ module.exports = function () {
             this.bcc.digitalWrite(0);
             console.log('reset');
         },
-        setVal: (in11, in12, in21, in22, pwm1, pwm2) => {
+        val: (in11, in12, in21, in22, pwm1, pwm2) => {
             ac.digitalWrite(in11);
             acc.digitalWrite(in12);
 
@@ -51,7 +51,7 @@ module.exports = function () {
             new_aSpeed = Math.floor(Math.abs(new_aSpeed));
             new_bSpeed = Math.floor(Math.abs(new_bSpeed));
 
-            this.setVal(acValue, accValue, bcValue, bccValue, new_aSpeed, new_bSpeed);
+            this.val(acValue, accValue, bcValue, bccValue, new_aSpeed, new_bSpeed);
         }
     }
 
