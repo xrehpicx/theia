@@ -27,6 +27,7 @@ module.exports = function () {
             worker.ea.pwmWrite(0);
             worker.eb.pwmWrite(0);
             worker.yspeed = 0;
+            worker.xspeed = 0;
         },
         reset: () => {
             worker.ea.pwmWrite(0);
@@ -63,7 +64,16 @@ module.exports = function () {
             new_bSpeed = Math.floor(Math.abs(new_bSpeed));
             console.log('values calculated');
             worker.val(acValue, accValue, bcValue, bccValue, new_aSpeed, new_bSpeed);
+        },
+        gox: (x) => {
+            if (x != undefined) worker.xspeed = x;
+            set(worker.yspeed, worker.xspeed);
+        },
+        goy: y => {
+            if (y != undefined) worker.yspeed = y;
+            set(worker.yspeed, worker.xspeed);
         }
+
     }
     return worker;
 }
