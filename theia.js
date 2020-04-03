@@ -18,7 +18,7 @@ socket.on('theiay', function (y) {
 socket.on('theiax', function (x) {
     x = Number(x);
     console.log(x);
-    wheels.goy(x)
+    wheels.gox(x)
 });
 
 socket.on('disconnect', function () {
