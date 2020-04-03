@@ -50,20 +50,25 @@ module.exports = function () {
             worker.eb.pwmWrite(pwm2);
         },
         set: (speed = 0, angularVelocity = 0) => {
-            console.log('set running');
-            let new_aSpeed = speed * Math.cos(angularVelocity * 2 * (angularVelocity < 0) * 3.1415926535897932384626 / 510);
-            let new_bSpeed = speed * Math.cos(angularVelocity * 2 * (angularVelocity >= 0) * 3.1415926535897932384626 / 510);
+            if (!speed && !angularVelocity) {
+                console.log('set running');
+                let new_aSpeed = speed * Math.cos(angularVelocity * 2 * (angularVelocity < 0) * 3.1415926535897932384626 / 510);
+                let new_bSpeed = speed * Math.cos(angularVelocity * 2 * (angularVelocity >= 0) * 3.1415926535897932384626 / 510);
 
-            const acValue = new_aSpeed > 0;
-            const accValue = new_aSpeed <= 0;
+                const acValue = new_aSpeed > 0;
+                const accValue = new_aSpeed <= 0;
 
-            const bcValue = new_bSpeed > 0;
-            const bccValue = new_bSpeed <= 0;
+                const bcValue = new_bSpeed > 0;
+                const bccValue = new_bSpeed <= 0;
 
-            new_aSpeed = Math.floor(Math.abs(new_aSpeed));
-            new_bSpeed = Math.floor(Math.abs(new_bSpeed));
-            console.log('values calculated');
-            worker.val(acValue, accValue, bcValue, bccValue, new_aSpeed, new_bSpeed);
+                new_aSpeed = Math.floor(Math.abs(new_aSpeed));
+                new_bSpeed = Math.floor(Math.abs(new_bSpeed));
+                worker.val(acValue, accValue, bcValue, bccValue, new_aSpeed, new_bSpeed);
+            } else {
+                worker.reset();
+            }
+
+
         },
         gox: (x) => {
             if (x != undefined) worker.xspeed = x;
