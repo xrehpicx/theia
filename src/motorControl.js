@@ -67,11 +67,11 @@ module.exports = function () {
         },
         gox: (x) => {
             if (x != undefined) worker.xspeed = x;
-            set(worker.yspeed, worker.xspeed);
+            worker.set(worker.yspeed, worker.xspeed);
         },
         goy: y => {
             if (y != undefined) worker.yspeed = y;
-            set(worker.yspeed, worker.xspeed);
+            worker.set(worker.yspeed, worker.xspeed);
         }
 
     }
