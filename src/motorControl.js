@@ -71,22 +71,25 @@ module.exports = function () {
 
         },
         gox: (x) => {
-            if (x != undefined) worker.xspeed = x;
+            worker.xspeed = x;
             worker.set(worker.yspeed, worker.xspeed);
         },
         goy: y => {
-            if (y != undefined) worker.yspeed = y;
+            worker.yspeed = y;
+            
             worker.set(worker.yspeed, worker.xspeed);
+            
         }
 
     }
     return worker;
 }
 
-function delay(duration) {
+/* function delay(duration) {
     return new Promise(function (resolve, reject) {
         setTimeout(function () {
             resolve();
         }, duration)
     });
 };
+ */
