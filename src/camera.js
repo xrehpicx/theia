@@ -4,7 +4,7 @@ module.exports = async (socket) => {
     const streamCamera = new StreamCamera({
         codec: Codec.MJPEG
     });
-    setInterval(() => {
+    setInterval(async () => {
         await streamCamera.startCapture();
         const image = await streamCamera.takeImage();
         socket.emit('cam', image.toString('base64'));
