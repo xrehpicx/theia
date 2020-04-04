@@ -1,9 +1,11 @@
-const { StillCamera } = require("pi-camera-connect");
+const { StreamCamera, Codec } = require("pi-camera-connect");
 
 module.exports = (socket) => {
-    const stillCamera = new StillCamera();
+    const streamCamera = new StreamCamera({
+        codec: Codec.MJPEG
+    });
     setInterval(() => {
-        stillCamera.takeImage().then(image => {
+        streamCamera.takeImage().then(image => {
             socket.emit('cam', image.toString('base64'));
         }).catch(e => console.log('camera failed'));
     }, 1000);
