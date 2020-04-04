@@ -1,11 +1,11 @@
 const wheels = require('./src/motorControl')();
 const socket = require('socket.io-client')('http://theiax.herokuapp.com/com');
-const camera = require('./src/camera')();
+const camera = require('./src/camera');
 
 wheels.init();
 
 socket.on('connect', function () {
-    console.log('connected');
+    console.log('connected from server');
 });
 
 socket.on('theiay', function (y) {
@@ -22,10 +22,10 @@ socket.on('theiax', function (x) {
 });
 
 socket.on('disconnect', function () {
-    console.log('disconnected');
+    console.log('disconnected from server');
 });
 
-
+camera(socket);
 
 
 
