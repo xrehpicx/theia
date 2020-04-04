@@ -6,6 +6,6 @@ module.exports = (socket) => {
         stillCamera.takeImage().then(image => {
             socket.emit('cam', image.toString('base64'));
         });
-    }, 500);
+    }, 1000);
 
 }
