@@ -4,11 +4,8 @@ module.exports = (socket) => {
     const stillCamera = new StillCamera();
     setInterval(() => {
         stillCamera.takeImage().then(image => {
-
             socket.emit('cam', image.toString('base64'));
-            console.log('photo sent');
-            
         });
-    }, 5000);
+    }, 500);
 
 }
