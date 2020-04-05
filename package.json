@@ -5,7 +5,7 @@
   "main": "theia.js",
   "scripts": {
     "start": "git pull && sudo node theia.js",
-    "deploy": "cd ./server/client && npm run build && cd ../.. && git add . && git commit -m 'theia deploy' && git push"
+    "deploy": "git add . && git commit -m 'theia deploy' && git push"
   },
   "repository": {
     "type": "git",

@@ -10,9 +10,7 @@ module.exports = async (socket) => {
         socket.emit('cam', image.toString('base64'));
         await streamCamera.stopCapture();
     }, 1000); */
-    const streamCamera = new StreamCamera({
-        codec: Codec.MJPEG
-    });
+    
 
     await streamCamera.startCapture();
 
