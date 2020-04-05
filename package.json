@@ -4,7 +4,7 @@
   "description": "the robot im building",
   "main": "theia.js",
   "scripts": {
-    "start": "sudo node theia.js",
+    "start": "git pull && sudo node theia.js",
     "deploy": "cd ./server/client && npm run build && cd ../.. && git add . && git commit -m 'theia deploy' && git push"
   },
   "repository": {
