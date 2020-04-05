@@ -1,6 +1,6 @@
 const { StreamCamera, Codec } = require("pi-camera-connect");
 
-module.exports = async (socket) => {
+module.exports = (socket) => {
     const streamCamera = new StreamCamera({
         codec: Codec.MJPEG
     });
@@ -10,17 +10,20 @@ module.exports = async (socket) => {
         socket.emit('cam', image.toString('base64'));
         await streamCamera.stopCapture();
     }, 1000); */
+    streamCamera.startCapture().then(() => {
+        console.log('capture started');
+        streamCamera.takeImage().then((img) => {
+            console.log('image captured');
+            streamCamera.stopCapture().then(() => {
+                console.log('capture stopped');
+            });
+        })
+    })
 
 
-    await streamCamera.startCapture();
-    console.log('capture started');
-    const image = await streamCamera.takeImage();
-    console.log('img captured');
-    /* console.log(image.toString('base64')); */
-    // Process image...
 
-    await streamCamera.stopCapture();
-    console.log('capture stopped');
+
+
 
 }
 
