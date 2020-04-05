@@ -1,24 +1,21 @@
 const { StreamCamera, Codec } = require("pi-camera-connect");
 
-module.exports = (socket) => {
+module.exports =async (socket) => {
     const streamCamera = new StreamCamera({
-        codec: Codec.H264
+        codec: Codec.MJPEG
     });
+    await streamCamera.startCapture();
+
+    const image = await streamCamera.takeImage();
+
+    await streamCamera.stopCapture();
+
     /* setInterval(async () => {
         await streamCamera.startCapture();
         const image = await streamCamera.takeImage();
         socket.emit('cam', image.toString('base64'));
         await streamCamera.stopCapture();
     }, 1000); */
-    
-    const videoStream = streamCamera.createStream();
-    streamCamera.startCapture().then(()=>{
-        videoStream.on("data", data => console.log("New data", data));
-        /* streamCamera.stopCapture(); */
-    })
-
-
-
 
 }
 
