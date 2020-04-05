@@ -14,8 +14,7 @@ module.exports = (socket) => {
     const videoStream = streamCamera.createStream();
     streamCamera.startCapture().then(()=>{
         videoStream.on("data", data => console.log("New data", data));
-        videoStream.on("end", data => console.log("Video stream has ended"));
-        streamCamera.stopCapture();
+        /* streamCamera.stopCapture(); */
     })
 
 
