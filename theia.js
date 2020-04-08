@@ -1,7 +1,7 @@
 console.log('starting theia');
 const wheels = require('./src/motorControl')();
 /* const socket = require('socket.io-client')('http://theiax.herokuapp.com/theia'); */
-const socket = require('socket.io-client')('http://localhost:8000/theia');
+const socket = require('socket.io-client')('http://192.168.29.16:8000/theia');
 const camera = require('./src/camera');
 wheels.init();
 
