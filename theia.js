@@ -5,7 +5,8 @@ const camera = require('./src/camera');
 wheels.init();
 
 socket.on('connect', function () {
-    console.log('connected from server');
+    console.log('connected to server');
+    socket.emit('theia-state','hey')
 });
 
 socket.on('theiay', function (y) {
@@ -25,7 +26,7 @@ socket.on('disconnect', function () {
     console.log('disconnected from server');
 });
 
-camera(socket);
+//camera(socket);
 
 
 
