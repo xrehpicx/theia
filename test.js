@@ -10,10 +10,6 @@ socket.on('connect', () => {
     raspberryPiCamera.on('frame', (frameData) => {
         
         socket.on('connection', () => console.log('connected'));
-        /* const img = frameData.toString('base64');
-        for (let i = 0; i < img.length; i++) {
-            socket.emit('cam', img.charAt(i));
-        } */
         
         socket.emit('cam', frameData);
     
@@ -22,7 +18,7 @@ socket.on('connect', () => {
         width: 352,
         height: 240,
         fps: 24,
-        quality: 10,
+        quality: 90,
         encoding: 'JPEG'
     });
 })
