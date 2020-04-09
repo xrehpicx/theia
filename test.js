@@ -19,7 +19,7 @@ socket.on('connect', () => {
     raspberryPiCamera.start({
         width: 1280,
         height: 720,
-        fps: 24,
+        fps: 1,
         quality: 10,
         encoding: 'JPEG'
     });
