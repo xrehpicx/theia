@@ -1,10 +1,11 @@
 const fs = require('fs');
-const socket = require('socket.io-client')('http://theiax.herokuapp.com/cam');
 const socket2 = require('socket.io-client')('http://theiax.herokuapp.com/theia');
+const socket = require('socket.io-client')('http://theiax.herokuapp.com/cam');
 const raspberryPiCamera = require('raspberry-pi-camera-native');
 
 let count = 0;
 socket.on('connection',()=>{
+    socket2.emit('theia-state', '1');
     console.log('connected')
     raspberryPiCamera.on('frame', (frameData) => {
         //const filename = 'img' + (count + '').padStart(3, '0') + '.jpg';
