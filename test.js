@@ -13,7 +13,7 @@ socket.on('connect',()=>{
         /* console.log(frameData.toString('base64')); */
         socket.on('connection', () => console.log('connected'));
         socket.emit('cam', frameData.toString('base64'));
-        console.log('img sent');
+        /* console.log('img sent'); */
         /* fs.writeFile(filename, frameData, (err) => {
             if (err) {
                 throw err;
