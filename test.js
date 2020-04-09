@@ -4,29 +4,23 @@ const socket = require('socket.io-client')('http://theiax.herokuapp.com/cam');
 const raspberryPiCamera = require('raspberry-pi-camera-native');
 
 let count = 0;
-socket.on('connect',()=>{
+socket.on('connect', () => {
     socket2.emit('theia-state', '1');
     console.log('connected')
     raspberryPiCamera.on('frame', (frameData) => {
-        //const filename = 'img' + (count + '').padStart(3, '0') + '.jpg';
-        //console.log('writing file: ', filename);
-        /* console.log(frameData.toString('base64')); */
+        socket.emit('cam', 'RESET');
         socket.on('connection', () => console.log('connected'));
-        socket.emit('cam', frameData.toString('base64'));
-        /* console.log('img sent'); */
-        /* fs.writeFile(filename, frameData, (err) => {
-            if (err) {
-                throw err;
-            }
+        const img = frameData.toString('base64');
+        for (let i = 0; i < img.length; i++) {
+            socket.emit('cam', img.charAt(i));
+        }
     
-            count++;
-        }); */
     });
     raspberryPiCamera.start({
-        width: 1920 / 2,
-        height: 1080 / 2,
-        fps: 20,
-        quality: 50,
+        width: 1280,
+        height: 720,
+        fps: 24,
+        quality: 10,
         encoding: 'JPEG'
     });
 })
