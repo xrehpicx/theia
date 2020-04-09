@@ -1,5 +1,5 @@
 const fs = require('fs');
-const socket = require('socket.io-client')('http://theiax.herokuapp.com/theia');
+const socket = require('socket.io-client')('http://theiax.herokuapp.com/cam');
 const raspberryPiCamera = require('raspberry-pi-camera-native');
 
 let count = 0;
