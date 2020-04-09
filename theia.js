@@ -28,7 +28,7 @@ socket.on('disconnect', function () {
     console.log('disconnected from server');
 });
 
-camera(camsocket);
+camera.init(camsocket);
 
 
 
