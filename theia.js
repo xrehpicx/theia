@@ -12,14 +12,14 @@ socket.on('connect', function () {
 
 socket.on('theiay', function (y) {
     y = Number(y);
-    console.log(y);
+    /* console.log(y); */
     wheels.goy(y)
 
 });
 
 socket.on('theiax', function (x) {
     x = Number(x);
-    console.log(x);
+    /* console.log(x); */
     wheels.gox(x)
 });
 
