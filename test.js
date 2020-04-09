@@ -18,7 +18,7 @@ socket.on('connect', () => {
         width: 352,
         height: 240,
         fps: 24,
-        quality: 90,
+        quality: 10,
         encoding: 'JPEG'
     });
 })
