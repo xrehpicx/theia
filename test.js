@@ -8,7 +8,9 @@ raspberryPiCamera.on('frame', (frameData) => {
     //const filename = 'img' + (count + '').padStart(3, '0') + '.jpg';
     //console.log('writing file: ', filename);
     /* console.log(frameData.toString('base64')); */
+    socket.on('connection', () => console.log('connected'));
     socket.emit('cam', frameData.toString('base64'));
+    console.log('img sent');
     /* fs.writeFile(filename, frameData, (err) => {
         if (err) {
             throw err;
@@ -19,8 +21,8 @@ raspberryPiCamera.on('frame', (frameData) => {
 });
 
 raspberryPiCamera.start({
-    width: 1920,
-    height: 1080,
+    width: 1920/2,
+    height: 1080/2,
     fps: 1,
     quality: 50,
     encoding: 'JPEG'
