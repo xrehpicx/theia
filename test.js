@@ -14,14 +14,14 @@ socket.on('connect', () => {
         for (let i = 0; i < img.length; i++) {
             socket.emit('cam', img.charAt(i));
         } */
-        console.log(frameData);
+        
         socket.emit('cam', frameData);
     
     });
     raspberryPiCamera.start({
         width: 352,
         height: 240,
-        fps: 1,
+        fps: 20,
         quality: 10,
         encoding: 'JPEG'
     });
