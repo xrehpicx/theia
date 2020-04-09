@@ -1,5 +1,5 @@
 const fs = require('fs');
-
+const socket = require('socket.io-client')('http://theiax.herokuapp.com/theia');
 const raspberryPiCamera = require('raspberry-pi-camera-native');
 
 let count = 0;
@@ -19,7 +19,7 @@ raspberryPiCamera.on('frame', (frameData) => {
 raspberryPiCamera.start({
     width: 1920,
     height: 1080,
-    fps: 1,
-    quality: 80,
+    fps: 30,
+    quality: 50,
     encoding: 'JPEG'
 });
