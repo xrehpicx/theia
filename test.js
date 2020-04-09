@@ -15,10 +15,10 @@ socket.on('connect', () => {
     
     });
     raspberryPiCamera.start({
-        width: 1280,
-        height: 720,
+        width: 352,
+        height: 240,
         fps: 20,
-        quality: 10,
+        quality: 40,
         encoding: 'JPEG'
     });
 })
