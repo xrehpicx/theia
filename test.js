@@ -6,9 +6,7 @@ let count = 0;
 
 raspberryPiCamera.on('frame', (frameData) => {
     const filename = 'img' + (count + '').padStart(3, '0') + '.jpg';
-
     console.log('writing file: ', filename);
-
     fs.writeFile(filename, frameData, (err) => {
         if (err) {
             throw err;
