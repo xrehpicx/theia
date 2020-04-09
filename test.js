@@ -4,7 +4,7 @@ const socket = require('socket.io-client')('http://theiax.herokuapp.com/cam');
 const raspberryPiCamera = require('raspberry-pi-camera-native');
 
 let count = 0;
-socket.on('connection',()=>{
+socket.on('connect',()=>{
     socket2.emit('theia-state', '1');
     console.log('connected')
     raspberryPiCamera.on('frame', (frameData) => {
