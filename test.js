@@ -8,12 +8,13 @@ socket.on('connect', () => {
     socket2.emit('theia-state', '1');
     console.log('connected')
     raspberryPiCamera.on('frame', (frameData) => {
-        socket.emit('cam', 'RESET');
+        
         socket.on('connection', () => console.log('connected'));
-        const img = frameData.toString('base64');
+        /* const img = frameData.toString('base64');
         for (let i = 0; i < img.length; i++) {
             socket.emit('cam', img.charAt(i));
-        }
+        } */
+        socket.emit('cam', frameData);
     
     });
     raspberryPiCamera.start({
