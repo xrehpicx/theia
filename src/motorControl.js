@@ -36,7 +36,7 @@ module.exports = function () {
             worker.bc.digitalWrite(0);
             worker.acc.digitalWrite(0);
             worker.bcc.digitalWrite(0);
-            console.log('reset');
+        
         },
         val: (in11, in12, in21, in22, pwm1, pwm2) => {
             worker.ac.digitalWrite(in11);
@@ -51,7 +51,7 @@ module.exports = function () {
         },
         set: (speed = 0, angularVelocity = 0) => {
             if (speed) {
-                console.log('set running');
+                
                 let new_aSpeed = speed * Math.cos(angularVelocity * 2 * (angularVelocity < 0) * 3.1415926535897932384626 / 510);
                 let new_bSpeed = speed * Math.cos(angularVelocity * 2 * (angularVelocity >= 0) * 3.1415926535897932384626 / 510);
 
