@@ -55,19 +55,24 @@ module.exports = function () {
                 processor.postMessage({ speed, angularVelocity });
                 processor.onmessage = data => {
                     console.log(data.data);
+                    let new_aSpeed = data.data.new_aSpeed;
+                    let new_bSpeed = data.data.new_bSpeed;
+
+
+                    const acValue = new_aSpeed > 0;
+                    const accValue = new_aSpeed <= 0;
+
+                    const bcValue = new_bSpeed > 0;
+                    const bccValue = new_bSpeed <= 0;
+
+                    new_aSpeed = Math.floor(Math.abs(new_aSpeed));
+                    new_bSpeed = Math.floor(Math.abs(new_bSpeed));
+                    worker.val(acValue, accValue, bcValue, bccValue, new_aSpeed, new_bSpeed);
                 }
-                let new_aSpeed = speed * Math.cos(angularVelocity * 2 * (angularVelocity < 0) * 3.1415926535897932384626 / 510);
-                let new_bSpeed = speed * Math.cos(angularVelocity * 2 * (angularVelocity >= 0) * 3.1415926535897932384626 / 510);
+                /* let new_aSpeed = speed * Math.cos(angularVelocity * 2 * (angularVelocity < 0) * 3.1415926535897932384626 / 510);
+                let new_bSpeed = speed * Math.cos(angularVelocity * 2 * (angularVelocity >= 0) * 3.1415926535897932384626 / 510); */
 
-                const acValue = new_aSpeed > 0;
-                const accValue = new_aSpeed <= 0;
-
-                const bcValue = new_bSpeed > 0;
-                const bccValue = new_bSpeed <= 0;
-
-                new_aSpeed = Math.floor(Math.abs(new_aSpeed));
-                new_bSpeed = Math.floor(Math.abs(new_bSpeed));
-                worker.val(acValue, accValue, bcValue, bccValue, new_aSpeed, new_bSpeed);
+                
             } else {
                 worker.reset();
             }
