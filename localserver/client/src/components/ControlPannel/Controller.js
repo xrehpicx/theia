@@ -7,8 +7,8 @@ import { AuthContext } from '../../contexts/AuthContext'
 import greenlet from 'greenlet'
 /* const socket = socketIOClient('http://localhost:8000/client'); */
 
-const socket = socketIOClient('http://raspberrypi.local/client');
-const camsocket = socketIOClient('http://raspberrypi.local/cam');
+const socket = socketIOClient(window.location + 'client');
+const camsocket = socketIOClient(window.location + 'cam');
 let setTheia;
 const controllers = {};
 
@@ -30,12 +30,12 @@ const remote = function (left, right) {
         }
         const getimg = greenlet(_arrayBufferToBase64);
         camsocket.on('camclient', (i) => {
-            getimg(i).then(data=>{
+            getimg(i).then(data => {
                 img.setAttribute(
                     'src', 'data:image/jpeg;base64,' + data
                 );
             })
-            
+
         })
     })
 
