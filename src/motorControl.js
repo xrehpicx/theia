@@ -93,7 +93,7 @@ module.exports = function () {
                     worker.yspeed = i;
                     worker.set(worker.yspeed, worker.xspeed);
                 }
-                else for (let i = worker.xspeed; i >= x; i--) {
+                else for (let i = worker.xspeed; i >= y; i--) {
                     worker.yspeed = i;
                     worker.set(worker.yspeed, worker.xspeed);
                 }
