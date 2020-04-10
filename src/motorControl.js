@@ -74,20 +74,14 @@ module.exports = function () {
             if (worker.xspeed !== x) {
                 worker.xspeed = x;
                 console.log("x", x)
-
                 worker.set(worker.yspeed, worker.xspeed);
-
             }
         },
         goy: y => {
             if (worker.yspeed !== y) {
                 worker.yspeed = y;
                 console.log("y", y)
-
                 worker.set(worker.yspeed, worker.xspeed);
-
-
-
             }
         }
 

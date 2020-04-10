@@ -1,12 +1,19 @@
 /* const socket2 = require('socket.io-client')('http://theiax.herokuapp.com/theia');
 const socket = require('socket.io-client')('http://theiax.herokuapp.com/cam'); */
-const raspberryPiCamera = require('raspberry-pi-camera-native');
+/* const raspberryPiCamera = require('raspberry-pi-camera-native'); */
 module.exports = {
     init: (socket) => {
 
         socket.on('connect', () => {
+
+            const cameraWorker = new Worker('cameraWorker.js');
+            cameraWorker.onmessage=(event)=>{
+                
+                socket.emit('cam', event.data);
+
+            }
             console.log('connected')
-            raspberryPiCamera.on('frame', (frameData) => {
+            /* raspberryPiCamera.on('frame', (frameData) => {
 
                 socket.on('connection', () => console.log('connected'));
 
@@ -19,7 +26,7 @@ module.exports = {
                 fps: 20,
                 quality: 10,
                 encoding: 'JPEG'
-            });
-        })
+            }); */
+        });
     }
 }
