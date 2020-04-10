@@ -14,10 +14,10 @@ module.exports = {
 
             });
             raspberryPiCamera.start({
-                width: 720,
-                height: 480,
+                width: 352,
+                height: 240,
                 fps: 20,
-                quality: 5,
+                quality: 10,
                 encoding: 'JPEG'
             });
         })
