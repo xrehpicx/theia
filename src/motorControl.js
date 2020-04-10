@@ -53,6 +53,9 @@ module.exports = function () {
         set: (speed = 0, angularVelocity = 0) => {
             if (speed) {
                 processor.postMessage({ speed, angularVelocity });
+                processor.onmessage = data => {
+                    console.log(data.data);
+                }
                 let new_aSpeed = speed * Math.cos(angularVelocity * 2 * (angularVelocity < 0) * 3.1415926535897932384626 / 510);
                 let new_bSpeed = speed * Math.cos(angularVelocity * 2 * (angularVelocity >= 0) * 3.1415926535897932384626 / 510);
 
