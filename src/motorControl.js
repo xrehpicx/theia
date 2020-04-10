@@ -36,7 +36,7 @@ module.exports = function () {
             worker.bc.digitalWrite(0);
             worker.acc.digitalWrite(0);
             worker.bcc.digitalWrite(0);
-        
+
         },
         val: (in11, in12, in21, in22, pwm1, pwm2) => {
             worker.ac.digitalWrite(in11);
@@ -51,7 +51,7 @@ module.exports = function () {
         },
         set: (speed = 0, angularVelocity = 0) => {
             if (speed) {
-                
+
                 let new_aSpeed = speed * Math.cos(angularVelocity * 2 * (angularVelocity < 0) * 3.1415926535897932384626 / 510);
                 let new_bSpeed = speed * Math.cos(angularVelocity * 2 * (angularVelocity >= 0) * 3.1415926535897932384626 / 510);
 
@@ -71,29 +71,36 @@ module.exports = function () {
 
         },
         gox: (x) => {
-            if (worker.xspeed!==x){
+            if (worker.xspeed !== x) {
                 worker.xspeed = x;
                 console.log("x", x)
-                worker.set(worker.yspeed, worker.xspeed);
+                if (x > worker.xspeed) for (let i = worker.xspeed; i <= x; i++) {
+                    worker.xspeed = i;
+                    worker.set(worker.yspeed, worker.xspeed);
+                }
+                else for (let i = worker.xspeed; i >= x; i--) {
+                    worker.xspeed = i;
+                    worker.set(worker.yspeed, worker.xspeed);
+                }
+
             }
         },
         goy: y => {
-            if (worker.yspeed !== y){
+            if (worker.yspeed !== y) {
                 worker.yspeed = y;
                 console.log("y", y)
-                worker.set(worker.yspeed, worker.xspeed);
+                if (x > worker.yspeed) for (let i = worker.yspeed; i <= y; i++) {
+                    worker.yspeed = i;
+                    worker.set(worker.yspeed, worker.xspeed);
+                }
+                else for (let i = worker.xspeed; i >= x; i--) {
+                    worker.yspeed = i;
+                    worker.set(worker.yspeed, worker.xspeed);
+                }
+
             }
         }
 
     }
     return worker;
 }
-
-/* function delay(duration) {
-    return new Promise(function (resolve, reject) {
-        setTimeout(function () {
-            resolve();
-        }, duration)
-    });
-};
- */
