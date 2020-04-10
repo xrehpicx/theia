@@ -20,9 +20,10 @@
   },
   "homepage": "https://github.com/xrehpicx/theia#readme",
   "dependencies": {
+    "greenlet": "^1.1.0",
     "pigpio": "^3.0.0",
     "raspberry-pi-camera-native": "latest",
     "socket.io-client": "^2.3.0",
-    "webworker-threads":"latest"
+    "webworker-threads": "latest"
   }
 }
