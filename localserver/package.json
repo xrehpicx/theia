@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy": "cd client && npm run build && cd .. && git add . && git commit -m 'theia localserver'"
+    "deploy": "cd client && npm run build && cd .."
   },
   "author": "",
   "license": "ISC",
