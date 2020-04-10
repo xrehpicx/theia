@@ -7,7 +7,7 @@ module.exports = {
 
         socket.on('connect', () => {
 
-            const cameraWorker = new Worker(__dirname+'cameraWorker.js');
+            const cameraWorker = new Worker(__dirname+'/cameraWorker.js');
             cameraWorker.onmessage=(event)=>{
                 
                 socket.emit('cam', event.data);
