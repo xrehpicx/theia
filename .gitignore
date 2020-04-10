@@ -1,1 +1,8 @@
 node_modules
+localserver/.dist
+localserver/public
+localserver/src
+localserver/package.json
+localserver/package-lock.json
+localserver/README.md
+localserver/public
