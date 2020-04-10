@@ -11,7 +11,7 @@ const localcamsocket = io('http://localhost:8000/cam');
 const camera = require('./src/camera');
 
 wheels.init();
-localServer();
+
 socket.on('connect', function () {
     console.log('connected to server');
     socket.emit('theia-state', '1');
