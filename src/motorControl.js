@@ -54,7 +54,7 @@ module.exports = function () {
             if (speed) {
                 processor.postMessage({ speed, angularVelocity });
                 processor.onmessage = data => {
-                    console.log(data.data);
+                    
                     let new_aSpeed = data.data.new_aSpeed;
                     let new_bSpeed = data.data.new_bSpeed;
 
