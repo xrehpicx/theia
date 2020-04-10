@@ -4,7 +4,7 @@ const io = require('socket.io-client');
 const socket = io('http://theiax.herokuapp.com/theia');
 const camsocket = io('http://theiax.herokuapp.com/cam');
 /* const socket = require('socket.io-client')('http://192.168.29.16:8000/theia'); */
-//require('./localserver/theia-server')();//runs local server
+require('./localserver/theia-server')();//runs local server
 
 const localsocket = io('http://localhost:8000/theia');
 const localcamsocket = io('http://localhost:8000/cam');
