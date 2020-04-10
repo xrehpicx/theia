@@ -13,7 +13,7 @@ module.exports = {
                 socket.emit('cam', event.data);
 
             }
-            console.log('connected')
+            console.log('worker deployed')
             /* raspberryPiCamera.on('frame', (frameData) => {
 
                 socket.on('connection', () => console.log('connected'));
