@@ -6,16 +6,12 @@ module.exports = {
 
         socket.on('connect', () => {
             console.log('connected')
-            raspberryPiCamera.on('frame', (frameData) => {
+            raspberryPiCamera.on('frame', async (frameData) => {
 
                 socket.on('connection', () => console.log('connected'));
-                Promise.all([
-                    async () => socket.emit('cam', frameData),
-                    async () => { if (localSocket) localSocket.emit('cam', frameData) }
-                ]);
 
-
-
+                (async () => socket.emit('cam', frameData))();
+                (async () => { if (localSocket) localSocket.emit('cam', frameData) })();
 
             });
             raspberryPiCamera.start({
