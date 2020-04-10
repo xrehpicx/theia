@@ -74,14 +74,8 @@ module.exports = function () {
             if (worker.xspeed !== x) {
                 worker.xspeed = x;
                 console.log("x", x)
-                if (x > worker.xspeed) for (let i = worker.xspeed; i <= x; i++) {
-                    worker.xspeed = i;
-                    worker.set(worker.yspeed, worker.xspeed);
-                }
-                else for (let i = worker.xspeed; i >= x; i--) {
-                    worker.xspeed = i;
-                    worker.set(worker.yspeed, worker.xspeed);
-                }
+
+                worker.set(worker.yspeed, worker.xspeed);
 
             }
         },
@@ -89,14 +83,10 @@ module.exports = function () {
             if (worker.yspeed !== y) {
                 worker.yspeed = y;
                 console.log("y", y)
-                if (y > worker.yspeed) for (let i = worker.yspeed; i <= y; i++) {
-                    worker.yspeed = i;
-                    worker.set(worker.yspeed, worker.xspeed);
-                }
-                else for (let i = worker.xspeed; i >= y; i--) {
-                    worker.yspeed = i;
-                    worker.set(worker.yspeed, worker.xspeed);
-                }
+
+                worker.set(worker.yspeed, worker.xspeed);
+
+
 
             }
         }
