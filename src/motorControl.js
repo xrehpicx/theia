@@ -71,14 +71,18 @@ module.exports = function () {
 
         },
         gox: (x) => {
-            worker.xspeed = x;
-            worker.set(worker.yspeed, worker.xspeed);
+            if (worker.xspeed!==x){
+                worker.xspeed = x;
+                console.log("x", x)
+                worker.set(worker.yspeed, worker.xspeed);
+            }
         },
         goy: y => {
-            worker.yspeed = y;
-            
-            worker.set(worker.yspeed, worker.xspeed);
-            
+            if (worker.yspeed !== y){
+                worker.yspeed = y;
+                console.log("y", y)
+                worker.set(worker.yspeed, worker.xspeed);
+            }
         }
 
     }
