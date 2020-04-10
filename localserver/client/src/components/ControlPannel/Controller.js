@@ -7,8 +7,8 @@ import { AuthContext } from '../../contexts/AuthContext'
 import greenlet from 'greenlet'
 /* const socket = socketIOClient('http://localhost:8000/client'); */
 
-const socket = socketIOClient('http://theiax.herokuapp.com/client');
-const camsocket = socketIOClient('http://theiax.herokuapp.com/cam');
+const socket = socketIOClient('http://raspberrypi.local/client');
+const camsocket = socketIOClient('http://raspberrypi.local/cam');
 let setTheia;
 const controllers = {};
 

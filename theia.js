@@ -1,10 +1,14 @@
 console.log('starting theia');
 const wheels = require('./src/motorControl')();
-const socket = require('socket.io-client')('http://theiax.herokuapp.com/theia');
-const camsocket = require('socket.io-client')('http://theiax.herokuapp.com/cam');
+const io = require('socket.io-client');
+const socket = io('http://theiax.herokuapp.com/theia');
+const camsocket = io('http://theiax.herokuapp.com/cam');
 /* const socket = require('socket.io-client')('http://192.168.29.16:8000/theia'); */
+require('./localserver/theia-server')();//runs local server
+
+const localsocket = io('http://localhost:8000/theia');
+const localcamsocket = io('http://localhost:8000/cam');
 const camera = require('./src/camera');
-//const localServer = require('./server/theia-server');
 
 wheels.init();
 localServer();
@@ -30,9 +34,7 @@ socket.on('disconnect', function () {
     console.log('disconnected from server');
 });
 
-
-
-camera.init(camsocket, localCamSocket);
+camera.init(camsocket);
 
 
 
