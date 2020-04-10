@@ -1,9 +1,6 @@
 /* const socket2 = require('socket.io-client')('http://theiax.herokuapp.com/theia');
 const socket = require('socket.io-client')('http://theiax.herokuapp.com/cam'); */
 const raspberryPiCamera = require('raspberry-pi-camera-native');
-
-
-
 module.exports = {
     init: (socket) => {
 
@@ -17,10 +14,10 @@ module.exports = {
 
             });
             raspberryPiCamera.start({
-                width: 352,
-                height: 240,
+                width: 720,
+                height: 480,
                 fps: 20,
-                quality: 8,
+                quality: 5,
                 encoding: 'JPEG'
             });
         })
