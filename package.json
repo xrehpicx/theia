@@ -6,7 +6,7 @@
   "scripts": {
     "startup": "sudo node theia.js",
     "test": "git pull && node test.js",
-    "start": "git pull && sudo node theia.js",
+    "start": "git pull && sudo node theia.js &",
     "deploy": "git add . && git commit -m 'theia deploy' && git push"
   },
   "repository": {
