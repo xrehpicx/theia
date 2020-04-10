@@ -1,5 +1,5 @@
 const Gpio = require('pigpio').Gpio;
-const greenlet = require('greenlet');
+var Worker = require('webworker-threads').Worker;
 module.exports = function () {
     const as = {
         c: 10,
@@ -11,6 +11,7 @@ module.exports = function () {
         c: 24,
         e: 22,
     }
+    const processor = new Worker(__dirname + '/xyWorker.js');
     const worker = {
         test: () => console.log(worker),
         init: (a = as, b = bs) => {
@@ -49,16 +50,12 @@ module.exports = function () {
             worker.ea.pwmWrite(pwm1);
             worker.eb.pwmWrite(pwm2);
         },
-        new_aSpeed: greenlet((speed, angularVelocity) => speed * Math.cos(angularVelocity * 2 * (angularVelocity < 0) * 3.1415926535897932384626 / 510)),
-        new_bSpeed: greenlet((speed, angularVelocity) => speed * Math.cos(angularVelocity * 2 * (angularVelocity >= 0) * 3.1415926535897932384626 / 510)),
-        set: async (speed = 0, angularVelocity = 0) => {
+        set: (speed = 0, angularVelocity = 0) => {
             if (speed) {
+                processor.postMessage({ speed, angularVelocity });
+                let new_aSpeed = speed * Math.cos(angularVelocity * 2 * (angularVelocity < 0) * 3.1415926535897932384626 / 510);
+                let new_bSpeed = speed * Math.cos(angularVelocity * 2 * (angularVelocity >= 0) * 3.1415926535897932384626 / 510);
 
-                /* let new_aSpeed = speed * Math.cos(angularVelocity * 2 * (angularVelocity < 0) * 3.1415926535897932384626 / 510);
-                let new_bSpeed = speed * Math.cos(angularVelocity * 2 * (angularVelocity >= 0) * 3.1415926535897932384626 / 510); */
-                let new_aSpeed = await worker.new_aSpeed(speed, angularVelocity);
-                let new_bSpeed = await worker.new_bSpeed(speed, angularVelocity);
-                
                 const acValue = new_aSpeed > 0;
                 const accValue = new_aSpeed <= 0;
 
