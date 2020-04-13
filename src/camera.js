@@ -19,7 +19,7 @@ module.exports = {
                 raspberryPiCamera.start({
                     width: 352,
                     height: 240,
-                    fps: 20,
+                    fps: 30,
                     quality: 10,
                     encoding: 'JPEG'
                 });
