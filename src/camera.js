@@ -6,7 +6,7 @@ module.exports = {
             this.setup = true;
             socket.on('connect', () => {
                 raspberryPiCamera.on('frame', (frameData) => {
-                    
+
                     socket.emit('cam', frameData)
                     if (localSocket) localSocket.emit('cam', frameData);
 
@@ -15,7 +15,7 @@ module.exports = {
                 raspberryPiCamera.start({
                     width: 352,
                     height: 240,
-                    fps: 30,
+                    fps: 20,
                     quality: 10,
                     encoding: 'JPEG'
                 });
