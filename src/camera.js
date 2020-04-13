@@ -7,7 +7,7 @@ module.exports = {
             socket.on('connect', () => {
                 console.log('connected');
                 
-                raspberryPiCamera.on('frame', async (frameData) => {
+                raspberryPiCamera.on('frame', (frameData) => {
 
                     raspberryPiCamera.pause();
                     socket.emit('cam', frameData)
