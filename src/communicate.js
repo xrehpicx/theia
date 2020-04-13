@@ -62,7 +62,9 @@ function Comm() {
                 callback();
 
             });
-    
+
         }
     }
 }
+
+module.exports = Comm();
