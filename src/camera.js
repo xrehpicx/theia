@@ -5,14 +5,14 @@ module.exports = {
         if (!this.setup) {
             this.setup = true;
             socket.on('connect', () => {
-                console.log('connected');
-                
                 raspberryPiCamera.on('frame', (frameData) => {
 
                     raspberryPiCamera.pause();
+                    console.log('paused');
                     socket.emit('cam', frameData)
                     if (localSocket) localSocket.emit('cam', frameData);
                     raspberryPiCamera.resume();
+                    console.log('resumed');
 
                 });
                 console.log('starting camera');
