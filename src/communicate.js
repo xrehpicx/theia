@@ -40,19 +40,20 @@ function Comm() {
 
         },
         localSocketInit: function (callback) {
-            localServer();
+
+            //localServer();
             localsocket.on('connect', function () {
                 console.log('connected to local server');
                 socket.emit('theia-state', true);
 
                 localsocket.on('theiay', function (y) {
-                    y = Number(y);
+                    
                     wheels.goy(y)
 
                 });
 
                 localsocket.on('theiax', function (x) {
-                    x = Number(x);
+                    
                     wheels.gox(x)
                 });
 
