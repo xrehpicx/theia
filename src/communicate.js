@@ -19,7 +19,7 @@ function Comm() {
         },
         socketInit: function (callback) {
             socket.on('connect', function () {
-                console.log('connected to server');
+                console.log('connected to online server');
                 socket.emit('theia-state', true);
 
                 socket.on('theiay', function (y) {
@@ -33,7 +33,7 @@ function Comm() {
                 });
 
                 socket.on('disconnect', function () {
-                    console.log('disconnected from server');
+                    console.log('disconnected from online server');
                 });
                 callback();
             });
@@ -42,7 +42,7 @@ function Comm() {
         localSocketInit: function (callback) {
             localServer();
             localsocket.on('connect', function () {
-                console.log('connected to server');
+                console.log('connected to local server');
                 socket.emit('theia-state', true);
 
                 localsocket.on('theiay', function (y) {
@@ -57,7 +57,7 @@ function Comm() {
                 });
 
                 localsocket.on('disconnect', function () {
-                    console.log('disconnected from server');
+                    console.log('disconnected from local server');
                 });
                 callback();
 

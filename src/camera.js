@@ -9,11 +9,13 @@ module.exports = {
                 raspberryPiCamera.on('frame', async (frameData) => {
 
                     socket.on('connection', () => console.log('connected'));
-
-                    (async () => socket.emit('cam', frameData))();
-                    (async () => { if (localSocket) localSocket.emit('cam', frameData) })();
+                    raspberryPiCamera.pause();
+                    socket.emit('cam', frameData)
+                    if (localSocket) localSocket.emit('cam', frameData);
+                    raspberryPiCamera.resume();
 
                 });
+                console.log('starting camera');
                 raspberryPiCamera.start({
                     width: 352,
                     height: 240,
