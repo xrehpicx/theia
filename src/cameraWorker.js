@@ -13,4 +13,5 @@ raspberryPiCamera.start({
     quality: 10,
     encoding: 'JPEG'
 });
+
 console.log('camera started');

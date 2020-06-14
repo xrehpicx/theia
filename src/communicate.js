@@ -2,19 +2,18 @@ console.log('establishing comm');
 const wheels = require('./motorControl')();
 const io = require('socket.io-client');
 const camera = require('./camera');
-const localServer = require('../localserver/theia-server');
 
 function Comm() {
     const socket = io('http://theiax.herokuapp.com/theia');
     const camsocket = io('http://theiax.herokuapp.com/cam');
 
-    const localsocket = io('http://localhost:8000/theia');
-    const localcamsocket = io('http://localhost:8000/cam');
+    /* const localsocket = io('http://localhost:8000/theia');
+    const localcamsocket = io('http://localhost:8000/cam'); */
 
     return {
         init: function () {
             wheels.init();
-            this.localSocketInit(() => camera.init(camsocket, localcamsocket));
+            /* this.localSocketInit(() => camera.init(camsocket, localcamsocket)); */
             this.socketInit(() => camera.init(camsocket, localcamsocket));
         },
         socketInit: function (callback) {
@@ -39,7 +38,7 @@ function Comm() {
             });
 
         },
-        localSocketInit: function (callback) {
+        /* localSocketInit: function (callback) {
 
             //localServer();
             localsocket.on('connect', function () {
@@ -64,7 +63,7 @@ function Comm() {
 
             });
 
-        }
+        } */
     }
 }
 

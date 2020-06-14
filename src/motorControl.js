@@ -46,7 +46,6 @@ module.exports = function () {
             this.bc.digitalWrite(in21);
             this.bcc.digitalWrite(in22);
 
-
             this.ea.pwmWrite(pwm1);
             this.eb.pwmWrite(pwm2);
         },
