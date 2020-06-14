@@ -89,7 +89,6 @@ module.exports = function () {
                 this.set(this.yspeed, this.xspeed);
             }
         }
-
     }
 
 }
