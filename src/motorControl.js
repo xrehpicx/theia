@@ -21,7 +21,7 @@ module.exports = function () {
             /* PAIR B */
             this.bc = new Gpio(b.c, { mode: Gpio.OUTPUT });
             this.bcc = new Gpio(b.cc, { mode: Gpio.OUTPUT });
-            /* ENABLES FOR BOTH PAIRS */
+            /* ENABLES FOR BOTH PARTS */
             this.ea = new Gpio(a.e, { mode: Gpio.OUTPUT });
             this.eb = new Gpio(b.e, { mode: Gpio.OUTPUT });
 
