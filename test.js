@@ -21,6 +21,8 @@ socket.on('connect', () => {
         quality: 8,
         encoding: 'JPEG'
     });
-})
+});
+
+
 
 

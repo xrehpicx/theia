@@ -1,4 +1,5 @@
 const raspberryPiCamera = require('raspberry-pi-camera-native');
+
 module.exports = {
     setup: false,
     init: function (socket, localSocket) {

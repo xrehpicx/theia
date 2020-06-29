@@ -1,6 +1,7 @@
 const Gpio = require('pigpio').Gpio;
 var Worker = require('webworker-threads').Worker;
 module.exports = function () {
+    
     const as = {
         c: 10,
         cc: 9,

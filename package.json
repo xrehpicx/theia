@@ -22,6 +22,7 @@
   "homepage": "https://github.com/xrehpicx/theia#readme",
   "dependencies": {
     "nan": "^2.14.1",
+    "node": "^14.4.0",
     "node-gyp": "^7.0.0",
     "pigpio": "^3.0.0",
     "raspberry-pi-camera-native": "latest",
